@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw7vs5totphjr"]
+[gd_scene load_steps=11 format=3 uid="uid://cw7vs5totphjr"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1b3cl"]
 [ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://assets/player.tscn" id="1_fxuxy"]
+[ext_resource type="PackedScene" uid="uid://u5xbxlwxlvxn" path="res://assets/pistol.tscn" id="3_2u1o6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iylqg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,12 +17,15 @@ sky = SubResource("Sky_wxms4")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_cy0oi"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_iverk"]
 size = Vector3(10, 0.1, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_eh3fc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m2ave"]
+size = Vector3(1, 1.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2uijc"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_1b3cl")
@@ -35,22 +39,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_fxuxy")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.587039, -5.03868)
-mesh = SubResource("BoxMesh_cy0oi")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56945, 0.587039, -0.675757)
-mesh = SubResource("BoxMesh_cy0oi")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.694416, 0.587039, 1.6007)
-mesh = SubResource("BoxMesh_cy0oi")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46006, 0.587039, -0.86443)
-mesh = SubResource("BoxMesh_cy0oi")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -60,3 +48,16 @@ shape = SubResource("BoxShape3D_iverk")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
 transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("BoxMesh_eh3fc")
+
+[node name="PickableObject" parent="." instance=ExtResource("3_2u1o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13196, 1.37356, -2.00247)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.347543, -2.00468)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_m2ave")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_2uijc")
