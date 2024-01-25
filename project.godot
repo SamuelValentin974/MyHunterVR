@@ -10,6 +10,12 @@ config_version=5
 
 [application]
 
-config/name="MyHunterVR"
+config/name="MyHunterVR2"
+run/main_scene="res://assets/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true
