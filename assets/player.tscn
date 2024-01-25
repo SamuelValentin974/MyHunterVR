@@ -1,12 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cenuowwyhhlmm"]
+[gd_scene load_steps=3 format=3 uid="uid://cenuowwyhhlmm"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_gmwuo"]
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_uchm1"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_ppt7y"]
 
 [node name="Player" type="Node3D"]
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="XROrigin3D"]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
@@ -15,14 +14,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.385, 0, 0, 0)
-mesh = SubResource("BoxMesh_gmwuo")
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("1_uchm1")]
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.303, 0, 0, 0)
-mesh = SubResource("BoxMesh_gmwuo")
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("2_ppt7y")]
