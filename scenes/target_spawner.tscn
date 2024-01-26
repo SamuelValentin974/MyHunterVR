@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://b113pil1qfvxh"]
+
+[ext_resource type="Script" path="res://scripts/target_spawner.gd" id="1_8t7pt"]
+
+[node name="TargetSpawner" type="Node3D"]
+script = ExtResource("1_8t7pt")
+
+[node name="SpawnPosLeft" type="Node3D" parent="."]
+
+[node name="SpawnPos_01" type="Marker3D" parent="SpawnPosLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, -10)
+
+[node name="SpawnPos_02" type="Marker3D" parent="SpawnPosLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8, -10)
+
+[node name="SpawnPos_03" type="Marker3D" parent="SpawnPosLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, -10)
+
+[node name="SpawnPos_04" type="Marker3D" parent="SpawnPosLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, -10)
+
+[node name="SpawnPosRight" type="Node3D" parent="."]
+
+[node name="SpawnPos_06" type="Marker3D" parent="SpawnPosRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, -10)
+
+[node name="SpawnPos_07" type="Marker3D" parent="SpawnPosRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 8, -10)
+
+[node name="SpawnPos_08" type="Marker3D" parent="SpawnPosRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6, -10)
+
+[node name="SpawnPos_09" type="Marker3D" parent="SpawnPosRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, -10)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

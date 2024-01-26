@@ -12,7 +12,6 @@ func _process(delta):
 	else:
 		dot.visible = false
 
-
 func _on_action_pressed(pickable):
 	if aim.is_colliding():
 		var obj = aim.get_collider()
