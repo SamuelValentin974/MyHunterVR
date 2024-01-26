@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/boundary.gd" id="1_403wl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mnwmr"]
-size = Vector3(1, 50, 50)
+size = Vector3(1, 50, 75)
 
 [node name="Boundary" type="Area3D"]
 script = ExtResource("1_403wl")
