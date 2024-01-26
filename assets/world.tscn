@@ -1,76 +1,34 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw7vs5totphjr"]
+[gd_scene load_steps=5 format=3 uid="uid://cw7vs5totphjr"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1b3cl"]
 [ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://assets/player.tscn" id="1_fxuxy"]
-[ext_resource type="PackedScene" uid="uid://u5xbxlwxlvxn" path="res://assets/pistol.tscn" id="3_2u1o6"]
-[ext_resource type="PackedScene" uid="uid://dj4hjrqtsnxv4" path="res://assets/target_range.tscn" id="4_j6q0y"]
+[ext_resource type="PackedScene" uid="uid://diu63j6e52yji" path="res://assets/env.tscn" id="3_160nm"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iylqg"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_wxms4"]
-sky_material = SubResource("ProceduralSkyMaterial_iylqg")
-
-[sub_resource type="Environment" id="Environment_uk5d0"]
-background_mode = 2
-sky = SubResource("Sky_wxms4")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_iverk"]
-size = Vector3(10, 0.1, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_eh3fc"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_m2ave"]
-size = Vector3(1, 1.5, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2uijc"]
+[sub_resource type="BoxMesh" id="BoxMesh_cy0oi"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_1b3cl")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_uk5d0")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
 [node name="Player" parent="." instance=ExtResource("1_fxuxy")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.03868)
+mesh = SubResource("BoxMesh_cy0oi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -0.5)
-shape = SubResource("BoxShape3D_iverk")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56945, 0, -0.675757)
+mesh = SubResource("BoxMesh_cy0oi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
-transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("BoxMesh_eh3fc")
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.694416, 0.504929, 1.6007)
+mesh = SubResource("BoxMesh_cy0oi")
 
-[node name="PickableObject" parent="." instance=ExtResource("3_2u1o6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13196, 1.37356, -2.00247)
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46006, 0.398247, -0.86443)
+mesh = SubResource("BoxMesh_cy0oi")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.347543, -2.00468)
+[node name="Env" parent="." instance=ExtResource("3_160nm")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.000736237)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-shape = SubResource("BoxShape3D_m2ave")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_2uijc")
-
-[node name="TargetRange" parent="." instance=ExtResource("4_j6q0y")]
-transform = Transform3D(0.206717, 0, 0.978401, 0, 1, 0, -0.978401, 0, 0.206717, -0.0781624, 2.15354, -4)
-
-[node name="TargetRange2" parent="." instance=ExtResource("4_j6q0y")]
-transform = Transform3D(0.206717, 0, 0.978401, 0, 1, 0, -0.978401, 0, 0.206717, 1.45741, 2.15354, -4)
-
-[node name="TargetRange3" parent="." instance=ExtResource("4_j6q0y")]
-transform = Transform3D(0.206717, 0, 0.978401, 0, 1, 0, -0.978401, 0, 0.206717, 2.8263, 2.15354, -4)
-
-[node name="TargetRange4" parent="." instance=ExtResource("4_j6q0y")]
-transform = Transform3D(0.206717, 0, 0.978401, 0, 1, 0, -0.978401, 0, 0.206717, -1.26354, 2.15354, -4)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, 1.50897e-08, -0.12941, -0.482963, 0.866025, -0.224144, -0.836516, -0.5, -2, 4, -2)
