@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw7vs5totphjr"]
+[gd_scene load_steps=12 format=3 uid="uid://cw7vs5totphjr"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1b3cl"]
 [ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://assets/player.tscn" id="1_fxuxy"]
 [ext_resource type="PackedScene" uid="uid://u5xbxlwxlvxn" path="res://assets/pistol.tscn" id="3_2u1o6"]
+[ext_resource type="PackedScene" uid="uid://dj4hjrqtsnxv4" path="res://assets/target_range.tscn" id="4_j6q0y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iylqg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -61,3 +62,15 @@ shape = SubResource("BoxShape3D_m2ave")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_2uijc")
+
+[node name="TargetRange" parent="." instance=ExtResource("4_j6q0y")]
+transform = Transform3D(0.206717, 0, 0.978401, 0, 1, 0, -0.978401, 0, 0.206717, -0.0781624, 2.15354, -4)
+
+[node name="TargetRange2" parent="." instance=ExtResource("4_j6q0y")]
+transform = Transform3D(0.206717, 0, 0.978401, 0, 1, 0, -0.978401, 0, 0.206717, 1.45741, 2.15354, -4)
+
+[node name="TargetRange3" parent="." instance=ExtResource("4_j6q0y")]
+transform = Transform3D(0.206717, 0, 0.978401, 0, 1, 0, -0.978401, 0, 0.206717, 2.8263, 2.15354, -4)
+
+[node name="TargetRange4" parent="." instance=ExtResource("4_j6q0y")]
+transform = Transform3D(0.206717, 0, 0.978401, 0, 1, 0, -0.978401, 0, 0.206717, -1.26354, 2.15354, -4)
