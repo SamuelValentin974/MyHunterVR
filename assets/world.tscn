@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw7vs5totphjr"]
+[gd_scene load_steps=8 format=3 uid="uid://cw7vs5totphjr"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1b3cl"]
 [ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://assets/player.tscn" id="1_fxuxy"]
 [ext_resource type="PackedScene" uid="uid://diu63j6e52yji" path="res://assets/env.tscn" id="3_160nm"]
+[ext_resource type="PackedScene" uid="uid://u5xbxlwxlvxn" path="res://assets/pistol.tscn" id="4_s7bmd"]
+[ext_resource type="PackedScene" uid="uid://dj4hjrqtsnxv4" path="res://assets/target_range.tscn" id="5_tspbx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cy0oi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4cpve"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_1b3cl")
@@ -15,6 +19,11 @@ script = ExtResource("1_1b3cl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.03868)
 mesh = SubResource("BoxMesh_cy0oi")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_4cpve")
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56945, 0, -0.675757)
 mesh = SubResource("BoxMesh_cy0oi")
@@ -24,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.694416, 0.504929, 1.6007)
 mesh = SubResource("BoxMesh_cy0oi")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46006, 0.398247, -0.86443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5844, -0.10868, -0.86443)
 mesh = SubResource("BoxMesh_cy0oi")
 
 [node name="Env" parent="." instance=ExtResource("3_160nm")]
@@ -32,3 +41,27 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.000736237)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.965926, -0.258819, 1.50897e-08, -0.12941, -0.482963, 0.866025, -0.224144, -0.836516, -0.5, -2, 4, -2)
+
+[node name="Pistol" parent="." instance=ExtResource("4_s7bmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10777, 0.734313, -5.00209)
+
+[node name="TargetRange" parent="." instance=ExtResource("5_tspbx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.83005, -13.3562)
+
+[node name="TargetRange2" parent="." instance=ExtResource("5_tspbx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.15028, 2.83005, -13.3562)
+
+[node name="TargetRange3" parent="." instance=ExtResource("5_tspbx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.04576, 2.83005, -13.3562)
+
+[node name="TargetRange4" parent="." instance=ExtResource("5_tspbx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38923, 2.83005, -13.3562)
+
+[node name="TargetRange5" parent="." instance=ExtResource("5_tspbx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.05133, 2.83005, -13.3562)
+
+[node name="TargetRange6" parent="." instance=ExtResource("5_tspbx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.68996, 2.83005, -13.3562)
+
+[node name="TargetRange7" parent="." instance=ExtResource("5_tspbx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.80647, 2.83005, -13.3562)
