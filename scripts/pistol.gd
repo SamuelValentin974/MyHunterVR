@@ -9,8 +9,6 @@ func _process(delta):
 	if aim.is_colliding():
 		dot.global_transform.origin = aim.get_collision_point()
 		dot.visible = true
-	else:
-		dot.visible = false
 
 func _on_action_pressed(pickable):
 	if aim.is_colliding():

@@ -25,7 +25,7 @@ func spawn_enemy():
 	else:
 		spawn_pos = spawner_right.get_children().pick_random()
 	var target_instance : TargetRange = targets.instantiate()
-	target_instance.global_position	= spawn_pos.global_position
 	target_instance.set_dir(side)
 	target_instance.set_rotation(Vector3(0,90,0))
 	add_child(target_instance)
+	target_instance.global_position	= spawn_pos.global_position
