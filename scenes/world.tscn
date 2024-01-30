@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw7vs5totphjr"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_1b3cl"]
+[ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://scenes/player.tscn" id="1_fxuxy"]
+[ext_resource type="PackedScene" path="res://assets/env.tscn" id="3_160nm"]
+[ext_resource type="PackedScene" uid="uid://u5xbxlwxlvxn" path="res://scenes/pistol.tscn" id="4_s7bmd"]
+[ext_resource type="PackedScene" uid="uid://dg0xamrcg26j4" path="res://scenes/boundary.tscn" id="5_mt1bm"]
+[ext_resource type="PackedScene" uid="uid://b113pil1qfvxh" path="res://scenes/target_spawner.tscn" id="6_d1b80"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cy0oi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4cpve"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_1b3cl")
+
+[node name="TargetSpawner" parent="." instance=ExtResource("6_d1b80")]
+
+[node name="Player" parent="." instance=ExtResource("1_fxuxy")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.03868)
+mesh = SubResource("BoxMesh_cy0oi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_4cpve")
+
+[node name="Env" parent="." instance=ExtResource("3_160nm")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.000736237)
+
+[node name="Pistol" parent="." instance=ExtResource("4_s7bmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10777, 0.734313, -5.00209)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, 2.80851e-07, -0.12941, -0.482963, 0.866025, -0.224144, -0.836516, -0.5, -2, 4, -2)
+
+[node name="Boundary" parent="." instance=ExtResource("5_mt1bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="Boundary2" parent="." instance=ExtResource("5_mt1bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
