@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1b3cl"]
 [ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://scenes/player.tscn" id="1_fxuxy"]
-[ext_resource type="PackedScene" path="res://assets/env.tscn" id="3_160nm"]
+[ext_resource type="PackedScene" uid="uid://diu63j6e52yji" path="res://assets/env.tscn" id="3_160nm"]
 [ext_resource type="PackedScene" uid="uid://u5xbxlwxlvxn" path="res://scenes/pistol.tscn" id="4_s7bmd"]
 [ext_resource type="PackedScene" uid="uid://dg0xamrcg26j4" path="res://scenes/boundary.tscn" id="5_mt1bm"]
 [ext_resource type="PackedScene" uid="uid://b113pil1qfvxh" path="res://scenes/target_spawner.tscn" id="6_d1b80"]
