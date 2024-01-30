@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw7vs5totphjr"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_caxwu"]
+[ext_resource type="PackedScene" uid="uid://b113pil1qfvxh" path="res://scenes/target_spawner.tscn" id="2_sqllw"]
+[ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://scenes/player.tscn" id="3_rgdhh"]
+[ext_resource type="PackedScene" uid="uid://diu63j6e52yji" path="res://assets/env.tscn" id="4_glwif"]
+[ext_resource type="PackedScene" uid="uid://u5xbxlwxlvxn" path="res://scenes/pistol.tscn" id="5_jt26p"]
+[ext_resource type="PackedScene" uid="uid://dg0xamrcg26j4" path="res://scenes/boundary.tscn" id="6_ytidr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cy0oi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4cpve"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_caxwu")
+game = true
+
+[node name="TargetSpawner" parent="." instance=ExtResource("2_sqllw")]
+
+[node name="Player" parent="." instance=ExtResource("3_rgdhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0589604, 0, -2.26288)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.03868)
+mesh = SubResource("BoxMesh_cy0oi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_4cpve")
+
+[node name="Env" parent="." instance=ExtResource("4_glwif")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.000736237)
+
+[node name="Pistol" parent="." instance=ExtResource("5_jt26p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10777, 0.734313, -5.00209)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, 2.80851e-07, -0.12941, -0.482963, 0.866025, -0.224144, -0.836516, -0.5, -2, 4, -2)
+
+[node name="Boundary" parent="." instance=ExtResource("6_ytidr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="Boundary2" parent="." instance=ExtResource("6_ytidr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)

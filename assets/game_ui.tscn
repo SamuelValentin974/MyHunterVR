@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://cxetdg7dyviax"]
+[gd_scene load_steps=2 format=3 uid="uid://cxetdg7dyviax"]
+
+[ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_r6n8y"]
 
 [node name="GameUi" type="CanvasLayer"]
 scale = Vector2(4.8, 4.8)
 transform = Transform2D(4.8, 0, 0, 4.8, 0, 0)
+script = ExtResource("1_r6n8y")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -42,7 +45,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Settings"
 
-[node name="Button3" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+[node name="BtnQuit" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"
+
+[connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/Button" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/BtnQuit" to="." method="_on_btn_quit_pressed"]
