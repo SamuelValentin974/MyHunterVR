@@ -60,6 +60,8 @@ autostart = true
 
 [node name="ScoreUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_dcgc4")
+volume_db = -4.0
+bus = &"sfx"
 
 [connection signal="hit_target" from="Pistol" to="." method="_on_pistol_hit_target"]
 [connection signal="hit_target" from="Pistol2" to="." method="_on_pistol_hit_target"]

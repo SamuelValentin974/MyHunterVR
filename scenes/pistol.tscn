@@ -49,6 +49,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wfh2e")
 
 [node name="Shot" type="AudioStreamPlayer3D" parent="." index="5"]
 stream = ExtResource("7_0ap6s")
-volume_db = -4.571
+volume_db = -4.0
+bus = &"sfx"
 
 [connection signal="action_pressed" from="." to="." method="_on_action_pressed"]

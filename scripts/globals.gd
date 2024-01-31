@@ -50,6 +50,9 @@ func get_chrono():
 func get_standard():
 	return best_score_standard
 
+func reset_speedup():
+	speedup_targets = 10
+
 func write_scores():
 	var standard = FileAccess.open(path_score_standard, FileAccess.WRITE)
 	var chrono = FileAccess.open(path_score_chrono, FileAccess.WRITE)
