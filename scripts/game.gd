@@ -27,6 +27,7 @@ func change_rule():
 
 func _on_timer_chrono_mode_timeout():
 	Globals.set_game_mode("menu")
+	Globals.compare_scores(Globals.get_standard(), score)	
 	get_tree().change_scene_to_file("res://assets/world.tscn")
 
 func _on_pistol_hit_target():
@@ -42,4 +43,5 @@ func _on_boundary_target_escaped():
 		$Player.dec_lives()
 		if $Player.get_lives() < 1:
 			Globals.set_game_mode("menu")
+			Globals.compare_scores(score, Globals.get_chrono())
 			get_tree().change_scene_to_file("res://assets/world.tscn")
