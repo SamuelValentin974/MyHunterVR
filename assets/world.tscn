@@ -12,6 +12,7 @@
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_1b3cl")
+game = true
 
 [node name="Player" parent="." instance=ExtResource("1_fxuxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007577, 0.0087291, 1.49451)

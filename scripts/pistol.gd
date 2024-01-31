@@ -1,6 +1,8 @@
 extends "res://addons/godot-xr-tools/objects/pickable.gd"
 class_name Pistol
 
+signal hit_target
+
 @onready var aim = $Aim
 @onready var dot = $Aim/TargetDot
 
@@ -11,7 +13,9 @@ func _process(delta):
 		dot.visible = true
 
 func _on_action_pressed(pickable):
+	$Shot.play()
 	if aim.is_colliding():
 		var obj = aim.get_collider()
 		if obj is TargetRange:
 			obj.queue_free()
+			emit_signal("hit_target")

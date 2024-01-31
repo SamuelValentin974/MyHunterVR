@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://u5xbxlwxlvxn"]
+[gd_scene load_steps=11 format=3 uid="uid://u5xbxlwxlvxn"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_fgr7k"]
 [ext_resource type="ArrayMesh" uid="uid://c0ph3vbov1qi7" path="res://assets/Models/OBJ format/blasterN.obj" id="2_bq0g1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_j2jyv"]
 [ext_resource type="Resource" uid="uid://dertgu7k8alls" path="res://addons/godot-xr-tools/hands/poses/pose_default_left.tres" id="4_rrw3k"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_t5hdj"]
+[ext_resource type="AudioStream" uid="uid://xejodtijqnw2" path="res://assets/sfx/sniper-rifle-5989.mp3" id="7_0ap6s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2583q"]
 size = Vector3(0.0875854, 0.310486, 0.623322)
@@ -45,5 +46,9 @@ debug_shape_thickness = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.32944)
 mesh = SubResource("SphereMesh_t34jx")
 surface_material_override/0 = SubResource("StandardMaterial3D_wfh2e")
+
+[node name="Shot" type="AudioStreamPlayer3D" parent="." index="5"]
+stream = ExtResource("7_0ap6s")
+volume_db = -4.571
 
 [connection signal="action_pressed" from="." to="." method="_on_action_pressed"]

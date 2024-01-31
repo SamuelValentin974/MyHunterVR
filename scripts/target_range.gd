@@ -12,9 +12,5 @@ func set_dir(direct):
 	dir = direct
 	
 func _physics_process(delta):
-	velocity.x = (125 * dir) * delta
+	velocity.x = ((125 + Globals.get_speedup()) * dir) * delta
 	move_and_slide()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw7vs5totphjr"]
+[gd_scene load_steps=10 format=3 uid="uid://cw7vs5totphjr"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_caxwu"]
 [ext_resource type="PackedScene" uid="uid://b113pil1qfvxh" path="res://scenes/target_spawner.tscn" id="2_sqllw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://diu63j6e52yji" path="res://assets/env.tscn" id="4_glwif"]
 [ext_resource type="PackedScene" uid="uid://u5xbxlwxlvxn" path="res://scenes/pistol.tscn" id="5_jt26p"]
 [ext_resource type="PackedScene" uid="uid://dg0xamrcg26j4" path="res://scenes/boundary.tscn" id="6_ytidr"]
+[ext_resource type="AudioStream" uid="uid://ccdq0sdg2dt72" path="res://assets/sfx/Retro PickUp Coin 07.wav" id="7_dcgc4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cy0oi"]
 
@@ -13,7 +14,6 @@
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_caxwu")
-game = true
 
 [node name="TargetSpawner" parent="." instance=ExtResource("2_sqllw")]
 
@@ -35,11 +35,35 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.000736237)
 [node name="Pistol" parent="." instance=ExtResource("5_jt26p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10777, 0.734313, -5.00209)
 
+[node name="Pistol2" parent="." instance=ExtResource("5_jt26p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.278511, 0.734313, -5.00209)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.965926, -0.258819, 2.80851e-07, -0.12941, -0.482963, 0.866025, -0.224144, -0.836516, -0.5, -2, 4, -2)
 
-[node name="Boundary" parent="." instance=ExtResource("6_ytidr")]
+[node name="Bounds" type="Node" parent="."]
+
+[node name="Boundary" parent="Bounds" instance=ExtResource("6_ytidr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
 
-[node name="Boundary2" parent="." instance=ExtResource("6_ytidr")]
+[node name="Boundary2" parent="Bounds" instance=ExtResource("6_ytidr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="TimerChronoMode" type="Timer" parent="Timers"]
+wait_time = 20.0
+
+[node name="TimerAddLevel" type="Timer" parent="Timers"]
+wait_time = 10.0
+autostart = true
+
+[node name="ScoreUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dcgc4")
+
+[connection signal="hit_target" from="Pistol" to="." method="_on_pistol_hit_target"]
+[connection signal="hit_target" from="Pistol2" to="." method="_on_pistol_hit_target"]
+[connection signal="target_escaped" from="Bounds/Boundary" to="." method="_on_boundary_target_escaped"]
+[connection signal="target_escaped" from="Bounds/Boundary2" to="." method="_on_boundary_target_escaped"]
+[connection signal="timeout" from="Timers/TimerChronoMode" to="." method="_on_timer_chrono_mode_timeout"]
+[connection signal="timeout" from="Timers/TimerAddLevel" to="." method="_on_timer_add_level_timeout"]
