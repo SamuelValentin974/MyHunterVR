@@ -22,10 +22,12 @@ script = ExtResource("1_trvsu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Viewport2Din3D" parent="XROrigin3D/XRCamera3D" instance=ExtResource("9_5ygcb")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, -0.511)
+process_mode = 4
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, -1)
 collision_layer = 5242880
 scene = ExtResource("10_xa4xc")
-viewport_size = Vector2(300, 240)
+viewport_size = Vector2(1152, 640)
+input_keyboard = false
 unshaded = true
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]

@@ -9,28 +9,28 @@ transform = Transform2D(8, 0, 0, 4.488, 10, 0)
 script = ExtResource("1_q34kn")
 
 [node name="Score" type="Label" parent="."]
-offset_top = 1.0
-offset_right = 61.0
-offset_bottom = 24.0
+offset_top = 20.0
+offset_right = 197.0
+offset_bottom = 92.0
 scale = Vector2(0.099081, 0.17476)
+theme_override_font_sizes/font_size = 52
 text = "Score: 0"
 
 [node name="LTimer" type="Label" parent="."]
 visible = false
-offset_left = 15.0
-offset_top = 1.0
-offset_right = 78.0
-offset_bottom = 24.0
+offset_top = 30.0
+offset_right = 204.0
+offset_bottom = 102.0
 scale = Vector2(0.099, 0.175)
+theme_override_font_sizes/font_size = 52
 text = "Timer: 0"
 
 [node name="Life" type="Label" parent="."]
-visible = false
-offset_left = 16.0
-offset_top = 45.0
-offset_right = 62.0
-offset_bottom = 68.0
+offset_top = 30.0
+offset_right = 150.0
+offset_bottom = 102.0
 scale = Vector2(0.099, 0.175)
+theme_override_font_sizes/font_size = 52
 text = "Life: 5"
 
 [node name="Timer" type="Timer" parent="."]
