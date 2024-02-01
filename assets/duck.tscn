@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cf48iui53hly5"]
+
+[ext_resource type="Texture2D" uid="uid://cpyxi6e3j3u5h" path="res://assets/Sprite/duck1_fly_r1.png" id="1_7vlmn"]
+[ext_resource type="Texture2D" uid="uid://cgo6pglbbmuck" path="res://assets/Sprite/duck1_fly_l1.png" id="1_10d0i"]
+[ext_resource type="Texture2D" uid="uid://h3bhv7v2nm8s" path="res://assets/Sprite/duck1_fly_l2.png" id="2_7p2xd"]
+[ext_resource type="Texture2D" uid="uid://85r2dnkh70sy" path="res://assets/Sprite/duck1_fly_r2.png" id="2_u81pt"]
+[ext_resource type="Texture2D" uid="uid://b3m1e407xgdl" path="res://assets/Sprite/duck1_fly_r3.png" id="3_e3n1w"]
+[ext_resource type="Texture2D" uid="uid://k7q6yyk0fi43" path="res://assets/Sprite/duck1_fly_l3.png" id="3_sw2nh"]
+[ext_resource type="Texture2D" uid="uid://dsw6m6tjfxjjq" path="res://assets/Sprite/duck1_hit.png" id="4_pls1f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dsybq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_10d0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7p2xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sw2nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7p2xd")
+}],
+"loop": true,
+"name": &"duck1_fly_l",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7vlmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u81pt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e3n1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u81pt")
+}],
+"loop": true,
+"name": &"duck1_fly_r",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pls1f")
+}],
+"loop": true,
+"name": &"duck1_hit",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_amswb"]
+radius = 14.0357
+
+[node name="Duck" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dsybq")
+animation = &"duck1_hit"
+frame_progress = 0.442986
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_amswb")
