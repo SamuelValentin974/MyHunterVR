@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cenuowwyhhlmm"]
+[gd_scene load_steps=11 format=3 uid="uid://cenuowwyhhlmm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_trvsu"]
 [ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_uchm1"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_cbylm"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_cqb0m"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_sgltv"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="9_5ygcb"]
+[ext_resource type="PackedScene" uid="uid://byd0pttptd7fd" path="res://assets/hud.tscn" id="10_xa4xc"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_trvsu")
@@ -18,6 +20,13 @@ script = ExtResource("1_trvsu")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Viewport2Din3D" parent="XROrigin3D/XRCamera3D" instance=ExtResource("9_5ygcb")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, -0.511)
+collision_layer = 5242880
+scene = ExtResource("10_xa4xc")
+viewport_size = Vector2(300, 240)
+unshaded = true
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
@@ -47,3 +56,4 @@ turn_mode = 2
 show_laser = 2
 laser_length = 1
 show_target = true
+target_radius = 0.02

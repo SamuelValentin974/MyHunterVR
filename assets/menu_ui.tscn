@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_r6n8y"]
 [ext_resource type="PackedScene" uid="uid://bnl1cx3gyxnsd" path="res://scenes/settings_menu.tscn" id="2_l2hu1"]
+[ext_resource type="Script" path="res://scripts/menu_ui.gd" id="1_4qhab"]
 
 [node name="GameUi" type="CanvasLayer"]
 scale = Vector2(4.8, 4.8)
 transform = Transform2D(4.8, 0, 0, 4.8, 0, 0)
-script = ExtResource("1_r6n8y")
+script = ExtResource("1_4qhab")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
