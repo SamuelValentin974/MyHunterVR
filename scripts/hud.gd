@@ -6,6 +6,8 @@ var life_label : Label
 var timer : Timer
 var elapsed_time : float = 0.0
 
+var game_mode : String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score_label = $Score
@@ -17,13 +19,21 @@ func _ready():
 	update_score(0)
 	update_life(5)
 	
-	timer.start()
+	#timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	elapsed_time += delta
-	update_timer()
+
+	if game_mode == "chrono_mode":
+		timer_label.visible = true
+		life_label.visible = false
+	elif game_mode == "standard_mode":
+		timer_label.visible = false
+		life_label.visible = true
+	
+	#update_timer()
 	
 
 

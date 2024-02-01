@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://byd0pttptd7fd"]
 
-[ext_resource type="Script" path="res://assets/hud.gd" id="1_q34kn"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_q34kn"]
 
 [node name="Hud" type="CanvasLayer"]
 offset = Vector2(10, 0)
@@ -16,6 +16,7 @@ scale = Vector2(0.099081, 0.17476)
 text = "Score: 0"
 
 [node name="LTimer" type="Label" parent="."]
+visible = false
 offset_left = 15.0
 offset_top = 1.0
 offset_right = 78.0
@@ -24,10 +25,11 @@ scale = Vector2(0.099, 0.175)
 text = "Timer: 0"
 
 [node name="Life" type="Label" parent="."]
+visible = false
 offset_left = 16.0
-offset_top = 38.0
+offset_top = 45.0
 offset_right = 62.0
-offset_bottom = 61.0
+offset_bottom = 68.0
 scale = Vector2(0.099, 0.175)
 text = "Life: 5"
 

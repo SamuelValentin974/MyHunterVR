@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://scenes/player.tscn" id="1_fxuxy"]
 [ext_resource type="PackedScene" uid="uid://diu63j6e52yji" path="res://assets/env.tscn" id="3_160nm"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_lbsfi"]
-[ext_resource type="PackedScene" uid="uid://cxetdg7dyviax" path="res://assets/game_ui.tscn" id="7_o6sni"]
+[ext_resource type="PackedScene" uid="uid://cxetdg7dyviax" path="res://assets/menu_ui.tscn" id="7_o6sni"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cy0oi"]
 
