@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw7vs5totphjr"]
+[gd_scene load_steps=9 format=3 uid="uid://cw7vs5totphjr"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_1b3cl"]
 [ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://scenes/player.tscn" id="1_fxuxy"]
 [ext_resource type="PackedScene" uid="uid://diu63j6e52yji" path="res://assets/env.tscn" id="3_160nm"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_lbsfi"]
+[ext_resource type="PackedScene" uid="uid://d0jq6te6uc8ib" path="res://scenes/score_ui.tscn" id="6_vnild"]
 [ext_resource type="PackedScene" uid="uid://dnp34g774rai0" path="res://assets/game_ui.tscn" id="7_o6sni"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cy0oi"]
@@ -35,5 +36,11 @@ transform = Transform3D(0.965926, -0.258819, 1.50897e-08, -0.12941, -0.482963, 0
 [node name="Viewport2Din3D" parent="." instance=ExtResource("6_lbsfi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58356, -6.30162)
 scene = ExtResource("7_o6sni")
+viewport_size = Vector2(1150, 642)
+unshaded = true
+
+[node name="Viewport2Din3D2" parent="." instance=ExtResource("6_lbsfi")]
+transform = Transform3D(0.65911, 0, 0.752047, 0, 1, 0, -0.752047, 0, 0.65911, -2.7101, 1.58356, -5.36644)
+scene = ExtResource("6_vnild")
 viewport_size = Vector2(1150, 642)
 unshaded = true

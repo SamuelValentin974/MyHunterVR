@@ -8,10 +8,13 @@ var side : int = 1
 var targets = preload("res://scenes/target_range.tscn")
 var ducks = preload("res://assets/duck.tscn")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Globals.spawn_time_changed.connect(spawn_time_dec)
+	
+func spawn_time_dec():
+	$SpawnTimer.set_wait_time($SpawnTimer.get_wait_time() - 0.5)
+	print("spawn rate = ", $SpawnTimer.get_wait_time())
 
 func _on_spawn_timer_timeout():
 	side = randi_range(0, 1)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0jq6te6uc8ib"]
+
+[ext_resource type="PackedScene" uid="uid://c3ed7ak0sby1c" path="res://scenes/score_menu.tscn" id="1_tilbn"]
+
+[node name="ScoreUI" type="CanvasLayer"]
+
+[node name="ScoreMenu" parent="." instance=ExtResource("1_tilbn")]

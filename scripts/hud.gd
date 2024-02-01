@@ -17,8 +17,11 @@ func _ready():
 	Globals.life_dec.connect(_on_life_change)
 	Globals.time_decreased.connect(_on_time_decreased)
 	Globals.set_rule.connect(change_label)
+	Globals.level_inc.connect(update_level)
 	update_score()
 	update_life(5)
+	update_level()
+	update_timer(30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,15 +32,18 @@ func change_label():
 		timer_label.visible = true
 		life_label.visible = false
 		score_label.visible = true		
+		$Level.visible = true		
 	elif Globals.get_game_mode() == "standard":
 		timer_label.visible = false
 		life_label.visible = true
-		score_label.visible = true		
+		score_label.visible = true
+		$Level.visible = true		
 		update_timer(Globals.get_time_chrono())
 	else:
 		timer_label.visible = false
 		life_label.visible = false
 		score_label.visible = false
+		$Level.visible = false
 
 func _on_time_decreased(time_left):
 	update_timer(time_left)
@@ -56,6 +62,9 @@ func update_timer(time):
 
 func update_life(lives):
 	life_label.text = "Lives: " + str(lives)
+
+func update_level():
+	$Level.text = "Level: " + str(Globals.get_difficulty())
 
 func _on_timer_timeout():
 	pass # Replace with function body.

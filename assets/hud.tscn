@@ -33,6 +33,15 @@ scale = Vector2(0.099, 0.175)
 theme_override_font_sizes/font_size = 52
 text = "Life: 5"
 
+[node name="Level" type="Label" parent="."]
+offset_top = 39.4385
+offset_right = 150.0
+offset_bottom = 111.439
+scale = Vector2(0.099, 0.175)
+theme_override_font_sizes/font_size = 52
+text = "Level : 0
+"
+
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

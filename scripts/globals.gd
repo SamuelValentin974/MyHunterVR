@@ -4,6 +4,8 @@ signal score_changed
 signal life_dec
 signal time_decreased(timeleft)
 signal set_rule()
+signal spawn_time_changed
+signal level_inc
 
 var life : int  = 5
 var game_mode : String = "menu"
@@ -38,7 +40,10 @@ func get_game_mode():
 
 func inc_speed():
 	difficulty += 1
-	speedup_targets += 50
+	level_inc.emit()
+	speedup_targets = 50 * difficulty
+	if difficulty % 3 == 0 && difficulty <= 12:
+		spawn_time_changed.emit()
 
 func get_difficulty():
 	return difficulty
