@@ -52,7 +52,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
 [node name="Timers" type="Node" parent="."]
 
 [node name="TimerChronoMode" type="Timer" parent="Timers"]
-wait_time = 20.0
 
 [node name="TimerAddLevel" type="Timer" parent="Timers"]
 wait_time = 10.0

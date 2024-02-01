@@ -1,5 +1,11 @@
 extends Node
 
+signal score_changed
+signal life_dec
+signal time_decreased(timeleft)
+signal set_rule()
+
+var life : int  = 5
 var game_mode : String = "standard"
 var speedup_targets : int = 10
 var difficulty : int = 1
@@ -7,6 +13,8 @@ var best_score_standard : int = 0
 var best_score_chrono : int = 0
 var path_score_standard = "res://scorefolder/score_standard.txt"
 var path_score_chrono = "res://scorefolder/score_chrono.txt"
+var current_score : int = 0
+var time_chrono = 30
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,6 +42,13 @@ func inc_speed():
 
 func get_difficulty():
 	return difficulty
+
+func get_lives():
+	return life
+
+func dec_life():
+	life -= 1
+	life_dec.emit()
 	
 func get_speedup():
 	return speedup_targets
@@ -49,6 +64,22 @@ func get_chrono():
 
 func get_standard():
 	return best_score_standard
+	
+func get_current_score():
+	return current_score
+	
+func set_current_score(score):
+	current_score = score
+	emit_signal("score_changed")
+	
+func get_time_chrono():
+	return time_chrono
+
+func set_time_chrono(chrono):
+	time_chrono = chrono
+
+func reset_score():
+	current_score = 0
 
 func reset_speedup():
 	speedup_targets = 10
