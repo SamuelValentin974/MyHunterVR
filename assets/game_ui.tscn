@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxetdg7dyviax"]
+[gd_scene load_steps=3 format=3 uid="uid://cxetdg7dyviax"]
 
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_r6n8y"]
+[ext_resource type="PackedScene" uid="uid://bnl1cx3gyxnsd" path="res://scenes/settings_menu.tscn" id="2_l2hu1"]
 
 [node name="GameUi" type="CanvasLayer"]
 scale = Vector2(4.8, 4.8)
@@ -11,12 +12,12 @@ script = ExtResource("1_r6n8y")
 layout_mode = 3
 anchors_preset = 0
 offset_right = 241.0
-offset_bottom = 137.0
+offset_bottom = 136.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_right = 241.0
-offset_bottom = 137.0
+offset_right = 239.0
+offset_bottom = 138.0
 color = Color(0.384314, 0.980392, 0.454902, 0.639216)
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect"]
@@ -27,9 +28,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -75.0
-offset_top = -50.5
+offset_top = -68.0
 offset_right = 75.0
-offset_bottom = 50.5
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -44,7 +45,7 @@ text = "Standard Mode"
 layout_mode = 2
 text = "Chrono Mode"
 
-[node name="Button2" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+[node name="BtnSettings" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Settings"
@@ -54,6 +55,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"
 
+[node name="SettingsMenu" parent="." instance=ExtResource("2_l2hu1")]
+visible = false
+
 [connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/BtnStandard" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/BtnChrono" to="." method="_on_btn_chrono_pressed"]
+[connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/BtnSettings" to="." method="_on_btn_settings_pressed"]
 [connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/BtnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="back_menu" from="SettingsMenu" to="." method="_on_settings_menu_back_menu"]

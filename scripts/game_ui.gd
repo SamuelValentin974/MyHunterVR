@@ -13,3 +13,13 @@ func _on_btn_quit_pressed():
 func _on_btn_chrono_pressed():
 	Globals.set_game_mode("chrono")	
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+
+func _on_btn_settings_pressed():
+	$Control.visible = false
+	$SettingsMenu.visible = true
+
+
+func _on_settings_menu_back_menu():
+	$Control.visible = true
+	$SettingsMenu.visible = false
