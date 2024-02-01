@@ -16,6 +16,6 @@ func _on_action_pressed(pickable):
 	$Shot.play()
 	if aim.is_colliding():
 		var obj = aim.get_collider()
-		if obj is TargetRange:
-			obj.queue_free()
+		if obj is Duck:
+			obj.die()
 			emit_signal("hit_target")

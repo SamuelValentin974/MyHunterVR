@@ -6,7 +6,7 @@ signal time_decreased(timeleft)
 signal set_rule()
 
 var life : int  = 5
-var game_mode : String = "standard"
+var game_mode : String = "menu"
 var speedup_targets : int = 10
 var difficulty : int = 1
 var best_score_standard : int = 0

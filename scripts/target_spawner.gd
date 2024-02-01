@@ -6,6 +6,7 @@ extends Node3D
 var side : int = 1
 
 var targets = preload("res://scenes/target_range.tscn")
+var ducks = preload("res://assets/duck.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,8 +25,8 @@ func spawn_enemy():
 		spawn_pos = spawner_left.get_children().pick_random()
 	else:
 		spawn_pos = spawner_right.get_children().pick_random()
-	var target_instance : TargetRange = targets.instantiate()
+	var target_instance : Duck = ducks.instantiate()
 	target_instance.set_dir(side)
-	target_instance.set_rotation(Vector3(0,90,0))
+	#target_instance.set_rotation(Vector3(0,90,0))
 	add_child(target_instance)
 	target_instance.global_position	= spawn_pos.global_position

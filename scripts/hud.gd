@@ -28,10 +28,16 @@ func change_label():
 	if Globals.get_game_mode() == "chrono":
 		timer_label.visible = true
 		life_label.visible = false
+		score_label.visible = true		
 	elif Globals.get_game_mode() == "standard":
 		timer_label.visible = false
 		life_label.visible = true
+		score_label.visible = true		
 		update_timer(Globals.get_time_chrono())
+	else:
+		timer_label.visible = false
+		life_label.visible = false
+		score_label.visible = false
 
 func _on_time_decreased(time_left):
 	update_timer(time_left)
