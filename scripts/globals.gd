@@ -48,6 +48,12 @@ func inc_speed():
 func get_difficulty():
 	return difficulty
 
+func inc_difficulty():
+	difficulty += 1
+
+func dec_difficulty():
+	difficulty -= 1
+
 func get_lives():
 	return life
 
