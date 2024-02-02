@@ -30,7 +30,7 @@ mesh = SubResource("BoxMesh_cy0oi")
 shape = SubResource("BoxShape3D_4cpve")
 
 [node name="Env" parent="." instance=ExtResource("4_glwif")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.000736237)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.000736237)
 
 [node name="Pistol" parent="." instance=ExtResource("5_jt26p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10777, 0.734313, -5.00209)
