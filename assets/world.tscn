@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw7vs5totphjr"]
+[gd_scene load_steps=11 format=3 uid="uid://cw7vs5totphjr"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_1b3cl"]
 [ext_resource type="PackedScene" uid="uid://cenuowwyhhlmm" path="res://scenes/player.tscn" id="1_fxuxy"]
 [ext_resource type="PackedScene" uid="uid://diu63j6e52yji" path="res://assets/env.tscn" id="3_160nm"]
 [ext_resource type="PackedScene" uid="uid://cd2hykpb2bw0p" path="res://scenes/difficulty_ui.tscn" id="6_gdikh"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_lbsfi"]
+[ext_resource type="PackedScene" uid="uid://ciyvl46dujd32" path="res://scenes/how_to_play_ui.tscn" id="6_pcowm"]
 [ext_resource type="PackedScene" uid="uid://d0jq6te6uc8ib" path="res://scenes/score_ui.tscn" id="6_vnild"]
 [ext_resource type="PackedScene" uid="uid://dnp34g774rai0" path="res://assets/game_ui.tscn" id="7_o6sni"]
 
@@ -35,19 +36,25 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.000736237)
 transform = Transform3D(0.965926, -0.258819, 1.50897e-08, -0.12941, -0.482963, 0.866025, -0.224144, -0.836516, -0.5, -2, 4, -2)
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("6_lbsfi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58356, -6.30162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.584, -6.3)
 scene = ExtResource("7_o6sni")
 viewport_size = Vector2(1150, 642)
 unshaded = true
 
+[node name="ViewportHowTo" parent="." instance=ExtResource("6_lbsfi")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -3.3, 1.584, -5.5)
+scene = ExtResource("6_pcowm")
+viewport_size = Vector2(1150, 642)
+unshaded = true
+
 [node name="ViewportDifficulty" parent="." instance=ExtResource("6_lbsfi")]
-transform = Transform3D(0.395868, 0, -0.305432, 0, 0.5, 0, 0.305432, 0, 0.395868, 2.3, 1.9, -5)
+transform = Transform3D(0.395868, 0, -0.305432, 0, 0.5, 0, 0.305432, 0, 0.395868, 2.3, 1.9, -6)
 scene = ExtResource("6_gdikh")
 viewport_size = Vector2(1150, 642)
 unshaded = true
 
 [node name="ViewportScore" parent="." instance=ExtResource("6_lbsfi")]
-transform = Transform3D(0.329555, 0, 0.376023, 0, 0.5, 0, -0.376023, 0, 0.329555, -2.7101, 1.58356, -5.50686)
+transform = Transform3D(0.399318, 0, -0.300907, 0, 0.5, 0, 0.300907, 0, 0.399318, 2.3, 0.9, -6)
 scene = ExtResource("6_vnild")
 viewport_size = Vector2(1150, 642)
 unshaded = true
